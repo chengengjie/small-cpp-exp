@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "build hello world",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g", "${fileBasename}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
