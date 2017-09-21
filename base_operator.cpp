@@ -40,11 +40,5 @@ int main()
     cout << (a==c) << endl; // false
     cout << (a==d) << endl; // false
 
-    vector<int> vecInts = {1, 2, 3};
-    for (auto val : vecInts)
-    {
-        cout << val << endl;
-    }
-
     return 0;
 }
