@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// force static member variable in derived by template
+// force static member variable in derived class by template
 template<typename Derived>
 class ModuleBase
 {
@@ -20,11 +20,11 @@ protected:
 class Module1 : public ModuleBase<Module1>  // Module1 recurs here
 {
 };
-class Module2 : public ModuleBase<Module2>
+class Module2 : public ModuleBase<Module2>  // Module2 recurs here
 {
 };
 
-// name of derived classes (forced: compiler error is no definition)
+// name of derived classes (forced: compiler error if no definition)
 template<> const string ModuleBase<Module1>::_name = "Module1";
 template<> const string ModuleBase<Module2>::_name = "Module2";
 
