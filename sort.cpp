@@ -1,3 +1,5 @@
+// Compare insertion/merge/heap/Quick/std:: sort
+
 #include<algorithm>
 #include<vector>
 #include<cstdio>
