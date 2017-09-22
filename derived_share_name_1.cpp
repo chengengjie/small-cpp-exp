@@ -1,3 +1,5 @@
+// Try (i) static constexpr and (ii) typeid().name()
+
 #include<iostream>
 #include<string>
 #include<typeinfo>
