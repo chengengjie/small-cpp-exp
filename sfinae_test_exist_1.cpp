@@ -1,3 +1,7 @@
+// SFINAE (Substitution Failure Is Not An Error) for testing existance of function / member variable
+// 1. concise
+// 2. no hacking by int()
+
 #include <iostream>
 #include <type_traits>
 #include <vector>

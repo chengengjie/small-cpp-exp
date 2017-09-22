@@ -1,3 +1,6 @@
+// SFINAE (Substitution Failure Is Not An Error) for testing existance of function / member variable
+// 1. well wrapped
+
 #include <iostream>
 #include <type_traits>
 #include <vector>
@@ -7,7 +10,7 @@ using namespace std;
 
 template <class T> struct has_begin
 {
-    template <typename C> static constexpr decltype(std::declval<C>().begin(), bool()) test(int)
+    template <typename C> static constexpr decltype(begin(std::declval<C>()), bool()) test(int)
     {
         return true;
     }
