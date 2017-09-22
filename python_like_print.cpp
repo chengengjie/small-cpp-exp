@@ -15,18 +15,21 @@ using namespace std;
 // SFINAE has_begin_end
 template <typename T, typename = void>
 struct has_begin_end
-  : std::false_type
-{ };
+  : std::false_type {};
 template <typename T>
-struct has_begin_end<T, decltype((void)begin(std::declval<T>()))>
-  : std::true_type
-{ };
-template <>
-struct has_begin_end<string> : false_type { };
+struct has_begin_end<T, decltype((void)begin(std::declval<T>()), (void)end(std::declval<T>()))>
+  : std::true_type {};
+
+// is container (warpper is necessary for basic_string, why?)
+template <typename T>
+struct is_container : integral_constant<bool, has_begin_end<T>::value> {};
+
+template <typename ...T>
+struct is_container<basic_string<T...>> : false_type { };
 
 // for container
 template<typename T>
-enable_if_t<has_begin_end<T>::value, ostream&>
+enable_if_t<is_container<T>::value, ostream&>
 operator<<(ostream& os, const T& container)
 {
     os << '[';
