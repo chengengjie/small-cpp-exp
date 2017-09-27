@@ -17,6 +17,16 @@ namespace B
     };
 }
 
+// namespace C
+// {
+//     class Car
+//     {
+//     public:
+//         using namespace A;
+//         Wheel wheel;
+//     };
+// }
+
 int main()
 {
     B::Car myCar;
