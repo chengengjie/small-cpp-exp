@@ -1,4 +1,5 @@
 #include <boost/icl/split_interval_map.hpp>
+#include <iostream>
 
 using namespace std;
 using namespace boost::icl;
@@ -28,6 +29,15 @@ int main() {
     setOnIntervals.add({interval<int>::closed(1945, 1953), {"Korea"}});
     cout << setOnIntervals << endl;
     // {([1895,1931)->{Korea })([1931,1941)->{China Korea })([1941,1945]->{China Korea USA })((1945,1949]->{China Korea })((1949,1953]->{Korea })}
+
+    // query on intervals
+    auto range = setOnIntervals.equal_range(interval<int>::closed(1942, 1950));
+    for (auto it = range.first; it != range.second; ++it) {
+        cout << "(" << it->first << "->" << it->second << ")";
+    }
+    cout << endl;
+    // ([1941,1945]->{China Korea USA })((1945,1949]->{China Korea })((1949,1953]->{Korea })
+    cout << boolalpha << (interval<int>::closed(1941, 1945) < interval<int>::closed(1942, 1950)) << endl;
 
     return 0;
 }
