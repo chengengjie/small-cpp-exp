@@ -39,5 +39,12 @@ int main() {
     // ([1941,1945]->{China Korea USA })((1945,1949]->{China Korea })((1949,1953]->{Korea })
     cout << boolalpha << (interval<int>::closed(1941, 1945) < interval<int>::closed(1942, 1950)) << endl;
 
+    // boundary
+    auto rightOpen = interval<int>::right_open(4, 10);
+    cout << rightOpen << endl;
+    cout << rightOpen.upper() << endl;
+    cout << upper(rightOpen) << endl;
+    cout << last(rightOpen) << endl;
+
     return 0;
 }
